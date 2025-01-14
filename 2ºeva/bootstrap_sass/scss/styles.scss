@@ -1,8 +1,7 @@
 //El import abajo porque las variables de bootstrap se sobreescriben con las nuestras.
 //Usar "sass scss:dist --watch" para compilar el archivo scss a css.
 //Los cambios que hagas se cargan en el momento que se guarda (Se actualiza el archivo css directamente con Save Typing).
-//Recodar que si lo apagas hay que volver a iniciarlo con el comando de arriba.
-
+//Recordar apagar el servidor y volver a encenderlo para que se carguen los cambios en el navegador con el comando de arriba.
 
 $primary: blue;
 $secondary: green;
