@@ -1,0 +1,166 @@
+$primary-color: #0d6efd;
+$secondary-color: #6c757d;
+$body-text-color: #333;
+$default-font-size: 16px;
+$border-radius: 0.25rem;
+$accordion-button-size: 1.25rem;
+$fw-bold: 700;
+$text-muted-color: #6c757d;
+
+// Import Bootstrap functions and variables
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+// Add new values to the theme colors map
+$theme-colors: (
+  "primary": #0d6efd,
+  "secondary": #6c757d,
+  "success": #198754,
+  "info": #0dcaf0,
+  "warning": #ffc107,
+  "danger": #dc3545,
+  "light": #f8f9fa,
+  "dark": #212529,
+  "custom-color": #ff5733 // New custom color
+);
+
+// Add new values to the spacers map
+$spacers: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 3rem,
+  6: 4rem // New custom spacer
+);
+
+// Add new values to the border widths map
+$border-widths: (
+  0: 0,
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px // New custom border width
+);
+
+// Add new values to the display text sizes map
+$display-font-sizes: (
+  1: 6rem,
+  2: 5.5rem,
+  3: 4.5rem,
+  4: 3.5rem,
+  5: 2.5rem,
+  6: 2rem,
+  7: 1.5rem // New custom display size
+);
+
+// Function to validate hexadecimal colors
+@function is-hex-color($color) {
+  $color-str: meta.inspect($color);
+  $length: str-length($color-str);
+
+  @if $length == 4 or $length == 7 or $length == 9 {
+    @if str-slice($color-str, 1, 1) == '#' {
+      $hex-part: str-slice($color-str, 2);
+      @if str-index('0123456789abcdefABCDEF', $hex-part) {
+        @return true;
+      }
+    }
+  }
+  @return false;
+}
+
+// Mixin to set background and text colors
+@mixin set-colors($bg-color) {
+  @if is-hex-color($bg-color) {
+    background-color: $bg-color;
+    color: color-contrast($bg-color);
+  } @else {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+// Import Bootstrap to apply the changes
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+    color: $body-text-color;
+    font-size: $default-font-size;
+}
+
+.navbar-brand span {
+    color: $secondary-color;
+    font-weight: $fw-bold;
+}
+
+.text-muted {
+    color: $text-muted-color !important;
+}
+
+.btn-secondary {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+}
+
+.btn-outline-primary {
+    color: $primary-color;
+    border-color: $primary-color;
+}
+
+.btn-outline-primary:hover {
+    background-color: $primary-color;
+    color: #fff;
+}
+
+.card, .btn, .accordion-button {
+    border-radius: $border-radius;
+}
+
+.accordion-button {
+    font-size: $accordion-button-size;
+}
+
+// Base class for the title component
+.title-component {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 1rem;
+  text-align: center;
+}
+
+// Variants for each theme color
+.title-primary {
+  @include set-colors($bs-primary);
+}
+
+.title-secondary {
+  @include set-colors($bs-secondary);
+}
+
+.title-success {
+  @include set-colors($bs-success);
+}
+
+.title-info {
+  @include set-colors($bs-info);
+}
+
+.title-warning {
+  @include set-colors($bs-warning);
+}
+
+.title-danger {
+  @include set-colors($bs-danger);
+}
+
+.title-light {
+  @include set-colors($bs-light);
+}
+
+.title-dark {
+  @include set-colors($bs-dark);
+}

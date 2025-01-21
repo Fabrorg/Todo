@@ -1,0 +1,47 @@
+$primary-color: #0d6efd;
+$secondary-color: #6c757d;
+$body-text-color: #333;
+$default-font-size: 16px;
+$border-radius: 0.25rem;
+$accordion-button-size: 1.25rem;
+$fw-bold: 700;
+$text-muted-color: #6c757d;
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+    color: $body-text-color;
+    font-size: $default-font-size;
+}
+
+.navbar-brand span {
+    color: $secondary-color;
+    font-weight: $fw-bold;
+}
+
+.text-muted {
+    color: $text-muted-color !important;
+}
+
+.btn-secondary {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+}
+
+.btn-outline-primary {
+    color: $primary-color;
+    border-color: $primary-color;
+}
+
+.btn-outline-primary:hover {
+    background-color: $primary-color;
+    color: #fff;
+}
+
+.card, .btn, .accordion-button {
+    border-radius: $border-radius;
+}
+
+.accordion-button {
+    font-size: $accordion-button-size;
+}
