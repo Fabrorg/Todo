@@ -1,0 +1,43 @@
+$primary: #00ffbf;
+$secondary: #ff0000;
+$tertiary: #00ff40;
+$border-radius: 0;
+$margin: 0;
+$padding: 0;
+
+@import './node_modules/bootstrap/scss/bootstrap';
+
+@mixin mixin($parameter) {
+    @if ($parameter >= 10) {
+        margin: 100px;
+        padding: 200px;
+    } @else {
+        margin: 0px;
+        padding: 0px;
+    }    
+}
+
+.banner{
+    background-color: $light;
+    color: $secondary;
+    font-size: $lead-font-size;
+    font-weight: $lead-font-weight;
+
+    button{
+        border: $tertiary 1px solid;
+    }
+
+    @include mixin(10px);
+}
+
+.banner-sm{
+    width: 25%;
+}
+
+.banner-md{
+    width: 50%;
+}
+
+.banner-lg{
+    width: 75%;
+}
